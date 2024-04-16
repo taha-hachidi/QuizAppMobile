@@ -66,7 +66,7 @@ public class QuizActivity extends AppCompatActivity {
         questionNum = findViewById(R.id.nquiz);
         questionTextView = findViewById(R.id.q);
 
-        loadQuestions();
+        chargerQuestions();
         btNext.setOnClickListener(v -> {
             int selectedId = rg.getCheckedRadioButtonId();
             if (selectedId != -1) {
@@ -84,7 +84,7 @@ public class QuizActivity extends AppCompatActivity {
 
             currentQuestionIndex++;
             if (currentQuestionIndex < questions.size()) {
-                displayQuestion();
+                questionDisplay();
             } else {
 
                 Intent intent = new Intent(QuizActivity.this, ScoreActivity.class);
@@ -94,7 +94,7 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
     }
-    private void loadQuestions() {
+    private void chargerQuestions() {
         questionsRef.get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -103,7 +103,7 @@ public class QuizActivity extends AppCompatActivity {
                         Question question = document.toObject(Question.class);
                         questions.add(question);
                     }
-                    displayQuestion();
+                    questionDisplay();
                 } else {
                     Toast.makeText(getApplicationContext(), "Error in extracting data from firestore !", Toast.LENGTH_SHORT).show();
                 }
@@ -111,7 +111,7 @@ public class QuizActivity extends AppCompatActivity {
         });
     }
 
-    private void displayQuestion() {
+    private void questionDisplay() {
         if (currentQuestionIndex < questions.size()) {
             Question currentQuestion = questions.get(currentQuestionIndex);
             questionNum.setText("Question " +cpt);
