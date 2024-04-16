@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "460545355788",
+    "project_id": "quiz-hachiditaha",
+    "storage_bucket": "quiz-hachiditaha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460545355788:android:c1c38c35eedf4487e2fe29",
+        "android_client_info": {
+          "package_name": "com.example.first_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzG-9JFLu0qdvYPXYVWyH6b2dwXdFGjC0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
